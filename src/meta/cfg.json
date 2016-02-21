@@ -2,6 +2,43 @@
     "debug": true,
     "http": {
         "enabled": true,
-        "listen": ":2000"
-    }
+        "listen": "0.0.0.0:2000"
+    },
+    "agents": [
+        {
+            "default": {
+                "cmd": "start",
+                "tarball": "http://127.0.0.1:2000/falcon",
+                "name": "falcon-agent",
+                "md5": "",
+                "version": "0.0.1"
+            },
+            "others": [
+                {
+                    "tarball": "",
+                    "prefix": "lg-falcon",
+                    "cmd": "",
+                    "md5": "",
+                    "version": "1.0.0"
+                },
+                {
+                    "tarball": "",
+                    "prefix": "lg-dinp",
+                    "cmd": "",
+                    "md5": "",
+                    "version": "1.0.1"
+                }
+            ]
+        },
+        {
+            "default": {
+                "cmd": "start",
+                "tarball": "http://11.11.11.11/dinp",
+                "name": "dinp-agent",
+                "md5": "",
+                "version": "0.0.2"
+            }
+        }
+    ],
+    "tarballDir": "./tarball"
 }

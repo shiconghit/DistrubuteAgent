@@ -13,9 +13,31 @@ type HttpConfig struct {
 	Listen  string `json:"listen"`
 }
 
+type AgentDefaultConfig struct {
+	Name    string `json:"name"`
+	Version string `json:"version"`
+	Tarball string `json:"tarball"`
+	Md5     string `json:"md5"`
+	Cmd     string `json:"cmd"`
+}
+
+type AgentOtherConfig struct {
+	Prefix  string `json:"prefix"`
+	Version string `json:"version"`
+	Tarball string `json:"tarball"`
+	Md5     string `json:"md5"`
+	Cmd     string `json:"cmd"`
+}
+
+type InheritConfig struct {
+	Default *AgentDefaultConfig `json:"default"`
+	Others  []*AgentOtherConfig `json:"others"`
+}
 type GlobalConfig struct {
-	Debug bool        `json:"debug"`
-	Http  *HttpConfig `json:"http"`
+	Debug      bool             `json:"debug"`
+	TarballDir string           `json:"tarballDir"`
+	Http       *HttpConfig      `json:"http"`
+	Agents     []*InheritConfig `json:"agents"`
 }
 
 var (

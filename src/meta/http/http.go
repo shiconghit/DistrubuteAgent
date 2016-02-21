@@ -15,6 +15,8 @@ type Dto struct {
 
 func init() {
 	configHealthRoutes()
+	configReloadRoutes()
+	configHeartbeat()
 }
 
 func RenderJson(w http.ResponseWriter, v interface{}) {
