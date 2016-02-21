@@ -1,0 +1,7 @@
+*.swp
+*.swo
+/bin
+*.log
+.DS_Store
+*.iml
+*.idea
