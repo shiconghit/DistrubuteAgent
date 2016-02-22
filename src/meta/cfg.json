@@ -4,6 +4,13 @@
         "enabled": true,
         "listen": "0.0.0.0:2000"
     },
+    "mysql":{
+        "user": "root",
+        "password": "shicong",
+        "dbname": "gorest",
+        "host": "127.0.0.1",
+        "port": "8080"
+    },
     "agents": [
         {
             "default": {

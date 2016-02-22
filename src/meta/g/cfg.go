@@ -13,6 +13,14 @@ type HttpConfig struct {
 	Listen  string `json:"listen"`
 }
 
+type MysqlConfig struct {
+	User 			string   `json:"user"`
+	Password 	string   `json:"password"`
+	DB 				string   `json:"dbname"`
+	Host				string	 `json:"host"`
+	Port 			string   `json:"port"`
+}
+
 type AgentDefaultConfig struct {
 	Name    string `json:"name"`
 	Version string `json:"version"`
@@ -37,6 +45,7 @@ type GlobalConfig struct {
 	Debug      bool             `json:"debug"`
 	TarballDir string           `json:"tarballDir"`
 	Http       *HttpConfig      `json:"http"`
+	Mysql 	   *MysqlConfig	`json:"mysql"`
 	Agents     []*InheritConfig `json:"agents"`
 }
 

@@ -1,12 +1,12 @@
 package main
 
 import (
-	"flag"
-	"fmt"
 	"./g"
 	"./http"
+	"flag"
+	"fmt"
+	"log"
 	"os"
-    "log"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func main() {
 	}
 
 	if err := g.ParseConfig(*cfg); err != nil {
-        log.Println(err)
+		log.Println(err)
 	}
 
 	go http.Start()
