@@ -7,11 +7,21 @@ import (
 	"fmt"
 )
 
+var(
+	mysqloperation *Impl
+)
+
+func GetMysqlOperator() *Impl{
+	return mysqloperation
+}
+
 func InitDb() {
 	i := Impl{}
 	i.InitConfig()
 	i.InitDB()
 	i.InitSchema()
+
+	mysqloperation = &i
 }
 
 type Impl struct {

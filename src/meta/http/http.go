@@ -17,6 +17,7 @@ func init() {
 	configHealthRoutes()
 	configReloadRoutes()
 	configHeartbeat()
+	configMysql()
 }
 
 func RenderJson(w http.ResponseWriter, v interface{}) {
