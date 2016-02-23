@@ -49,7 +49,7 @@ func (i *Impl) InitDB() {
 	if err != nil {
 		log.Fatalf("Got error when connect database, the error is '%v'", err)
 	}
-	i.DB.LogMode(true)
+	i.DB.LogMode(g.Config().Debug)
 }
 
 func (i *Impl) InitSchema() {
@@ -67,11 +67,7 @@ func (i *Impl) InitSchema() {
 
 }
 
-func (i *Impl) GetAllReminders() []model.Reminder{
-	reminders := []model.Reminder{}
-	i.DB.Find(&reminders)
-	return reminders
-}
+
 
 //func (i *Impl) GetReminder(id string) model.Reminder{
 //	reminder := model.Reminder{}
