@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"./mysql"
 )
 
 func main() {
@@ -24,6 +25,8 @@ func main() {
 	if err := g.ParseConfig(*cfg); err != nil {
 		log.Println(err)
 	}
+
+	mysql.InitDb()
 
 	go http.Start()
 

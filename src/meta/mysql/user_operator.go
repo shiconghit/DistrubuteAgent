@@ -1,5 +1,6 @@
 package mysql
 import (
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 	"log"
 	"../g"
@@ -15,6 +16,7 @@ func GetMysqlOperator() *Impl{
 	return mysqloperation
 }
 
+//init db
 func InitDb() {
 	i := Impl{}
 	i.InitConfig()
@@ -33,8 +35,6 @@ type Impl struct {
 }
 
 func (i *Impl) InitConfig() {
-	g.Config().Mysql.User
-
 	i.user = g.Config().Mysql.User
 	i.password = g.Config().Mysql.Password
 	i.dbname = g.Config().Mysql.DB
