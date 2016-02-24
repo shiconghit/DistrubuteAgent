@@ -11,11 +11,16 @@ import (
 	"os"
 	"./mysql"
 	"../common/common_proto"
+	"reflect"
 )
 
 func main() {
 //	TODO just for text
 	//encode
+	tt := proto.MessageType("common_proto.helloworld")
+	s := reflect.New(tt)
+	log.Println(s.String())
+
 	msg := &common_proto.Helloworld{
 		Id: proto.Int32(101),
 		Str:proto.String("hello"),
