@@ -12,14 +12,12 @@ import (
 	"./mysql"
 	"../common/common_proto"
 	"reflect"
+	"strings"
 )
 
 func main() {
-//	TODO just for text
+	//	TODO just for text
 	//encode
-	tt := proto.MessageType("common_proto.helloworld")
-	s := reflect.New(tt)
-	log.Println(s.String())
 
 	msg := &common_proto.Helloworld{
 		Id: proto.Int32(101),
@@ -32,15 +30,26 @@ func main() {
 	log.Println(buffer)
 
 	//decode
-	msedecode := &common_proto.Helloworld{}
+	aa := common_proto.Helloworld{}
+	rrstring := (reflect.TypeOf(&aa)).Elem().String()
+	log.Println(rrstring)
+
+	tt := proto.MessageType(strings.ToLower(rrstring))
+	log.Println(tt)
+	s := reflect.New(tt.Elem())
+
+	msedecode := s.Interface().(proto.Message) //&common_proto.Helloworld{}
 	err = proto.Unmarshal(buffer, msedecode)
 	if err != nil{
 		log.Println("failed parser: %s\n", err)
 	}
-	log.Println("decode: %s", msedecode.String())
+	log.Println("decode: ", msedecode.String())
 
 	os.Exit(0)
 //
+
+
+
 
 	cfg := flag.String("c", "cfg.json", "configuration file")
 	version := flag.Bool("v", false, "show version")
