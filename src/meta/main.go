@@ -110,7 +110,16 @@ func main() {
 	massagename := getMessageName(msg)
 	encodebuf := encodeMessagePack(massagename, buffer)
 
-	decodeMessagePack(encodebuf)
+	anything :=  decodeMessagePack(encodebuf)
+	obj, ok := anything.(common_proto.Helloworld)
+//	obj := (*common_proto.Helloworld)(anything)
+	log.Println((obj).Id, ok)
+//	if obj, ok := anything.(string){
+//		log.Println(obj)
+//	}else{
+//		log.Println(ok)
+//	}
+
 	os.Exit(0)
 
 	//decode
