@@ -6,3 +6,4 @@
 *.iml
 *.idea
 *.exe
+/src/github.com
