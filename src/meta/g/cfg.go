@@ -8,6 +8,11 @@ import (
 	"sync"
 )
 
+type RedisConfig struct {
+	Addr    string `json:"addr"`
+	MaxIdle int    `json:"maxIdle"`
+}
+
 type HttpConfig struct {
 	Enabled bool   `json:"enabled"`
 	Listen  string `json:"listen"`
@@ -45,8 +50,9 @@ type GlobalConfig struct {
 	Debug      bool             `json:"debug"`
 	TarballDir string           `json:"tarballDir"`
 	Http       *HttpConfig      `json:"http"`
-	Mysql 	   *MysqlConfig	`json:"mysql"`
+	Mysql 	   *MysqlConfig		`json:"mysql"`
 	Agents     []*InheritConfig `json:"agents"`
+	Redis  		*RedisConfig  	`json:"redis"`
 }
 
 var (

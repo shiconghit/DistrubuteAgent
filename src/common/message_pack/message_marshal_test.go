@@ -13,6 +13,7 @@ import (
 	"testing"
 	"fmt"
 	"reflect"
+	"time"
 )
 
 type User struct {
@@ -111,4 +112,26 @@ func Test_case3(t *testing.T){
 	//	obj := reflect.TypeOf(*anything)
 
 	//	t.Log(obj.Id(), obj.Str())
+}
+
+
+var chhh = make(chan common_proto.Helloworld, 128)
+func start(){
+	for{
+		msg := common_proto.Helloworld{
+			Id: proto.Int32(101),
+			Str:proto.String("hello"),
+		}
+		chhh <- msg
+		time.Sleep(time.Microsecond * 100)
+	}
+
+}
+
+func Test_case4(t *testing.T) {
+	go start()
+	for{
+		t.Log(<-chhh)
+	}
+
 }

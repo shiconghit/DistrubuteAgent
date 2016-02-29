@@ -4,6 +4,10 @@
         "enabled": true,
         "listen": "0.0.0.0:2000"
     },
+    "redis": {
+        "addr": "127.0.0.1:6379",
+        "maxIdle": 5
+    },
     "mysql":{
         "user": "root",
         "password": "shicong",

@@ -30,10 +30,10 @@ func main() {
 		log.Println("failed parser: %s\n", err)
 	}
 
-	massagename := getMessageName(msg)
+	massagename := message_pack.GetMessageName(msg)
 	encodebuf := message_pack.EncodeMessagePack(massagename, buffer)
 
-	anything :=  message_pack.DecodeMessagePack(encodebuf)
+	anything, err :=  message_pack.DecodeMessagePack(encodebuf)
 	//	obj, ok := anything.(common_proto.Helloworld)
 	//	obj := (*common_proto.Helloworld)(anything)
 
